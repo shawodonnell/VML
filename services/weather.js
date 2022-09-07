@@ -1,4 +1,4 @@
-let getWeatherByLatLong = (lat,long) => {
+let getWeatherFromLatLong = (lat,long) => {
 
     //placeholder to check routing and response
     return {
@@ -10,4 +10,4 @@ let getWeatherByLatLong = (lat,long) => {
 }
 
 
-module.exports = {getWeatherByLatLong} 
+module.exports = {getWeatherFromLatLong} 
