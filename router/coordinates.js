@@ -1,5 +1,4 @@
 const express = require('express');
-const { read } = require('fs');
 const router = express.Router();
 const postcodeSearch = require('../services/postcode')
 const weatherSearch = require('../services/weather')
@@ -11,19 +10,21 @@ router.use('/:postcode',(req,res,next)=>{
 })
 
 //SINGLE POST CODE
-router.get('/:postcode',async (req,res)=>{
+router.get('/:postcode', async (req,res)=>{
 
-    if(!req.postcode) res.status(501).json({
-        message: "No postcode entered"
-    })
+    if(!req.postcode) res.status(501).json({message: "No postcode entered"})
     
-    postcodeSearch.getCoordinatesFromPostCode(req.postcode);
-    res.end();
+    var coordinates = await postcodeSearch.getCoordinatesFromPostCode(req.postcode);
+    
+    if(!coordinates) res.status(501).json({message: "Error with search"})
 
-    res.json({coords,weather})
+    res.status(200).json({message:"Success",coordinates:coordinates})
+
 })
 
-//BULK SEARCH
+
+
+//BULK SEARCH - placeholder endpoint
 router.get('/', async (req,res) => {
     const postcodes = req.body.postcodes;
 
