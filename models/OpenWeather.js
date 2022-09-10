@@ -7,7 +7,7 @@ class OpenWeather {
 
     async getURLData(contextData) {
 
-        if(contextData==null){
+        if (contextData == null) {
             throw new Error("Missing Data - Open Weather:getURL");
         }
 
@@ -43,7 +43,7 @@ class OpenWeather {
 
     async formatResponse(responseData) {
 
-        if(responseData==null){
+        if (responseData == null) {
             throw new Error("Missing Data - Open Weather:formatResponse");
         }
 

@@ -10,8 +10,8 @@ class Request {
         if (!isIterator && requestData.method === 'GET') {
             return await axios.get(requestData.url)
                 .then((data) => data.data)
-                .catch((err)=>{
-                    throw new Error("Request Error: "+err.message)
+                .catch((err) => {
+                    throw new Error("Request Error: " + err.message)
                 })
         }
 
@@ -21,8 +21,8 @@ class Request {
                 postcodes: requestData.postcodes
             })
                 .then(data => data.data)
-                .catch((err)=>{
-                    throw new Error("Request Error: "+err.message)
+                .catch((err) => {
+                    throw new Error("Request Error: " + err.message)
                 })
         }
 
@@ -32,18 +32,18 @@ class Request {
 
         for (let i = 0; i < requestData.length; i++) {
             const request = requestData[i];
-            
+
             response = await axios.get(request.url)
                 .then(data => data.data)
-                .catch((err)=>{
-                    throw new Error("Request Error: "+err.message)
+                .catch((err) => {
+                    throw new Error("Request Error: " + err.message)
                 })
             responses.push(response)
         }
 
         return responses
     }
-    
+
 }
 
 module.exports = Request;
