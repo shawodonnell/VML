@@ -26,7 +26,11 @@ class PostcodeIO {
     }
 
     async formatResponse(responseData) {
-        
+
+        if(responseData==null){
+            throw new Error("Missing Data - PostCodeIO:formatResponse");
+        }
+                
         //SINGLE POSTCODE FORMATTING
         if(Object.keys(responseData.result).includes('latitude')
         && Object.keys(responseData.result).includes('longitude') 

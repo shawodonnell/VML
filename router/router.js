@@ -29,7 +29,6 @@ router.get('/:postcodes', async (req, res) => {
         location: locationData,
         weather: weatherData
     })
-
 })
 
 //BULK SEARCH - placeholder endpoint
@@ -55,8 +54,6 @@ router.get('/', async (req, res) => {
         location: locationData,
         weather: weatherData
     })
-
-
 })
 
 

@@ -26,9 +26,6 @@ class WebServices {
         return await
             this.request.send(requestData)
                 .then(data => data)
-                .catch((err) => {
-                    throw new Error("Sending Request Error: " + err.message)
-                })
     }
 
     async formatReponseData(responseData) {

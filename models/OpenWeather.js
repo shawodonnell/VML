@@ -7,6 +7,10 @@ class OpenWeather {
 
     async getURLData(contextData) {
 
+        if(contextData==null){
+            throw new Error("Missing Data - Open Weather:getURL");
+        }
+
         //SINGLE POSTCODE REQUEST
         var isIterator = !(Symbol.iterator in Object(contextData))
 
@@ -38,6 +42,10 @@ class OpenWeather {
     }
 
     async formatResponse(responseData) {
+
+        if(responseData==null){
+            throw new Error("Missing Data - Open Weather:formatResponse");
+        }
 
         var isIterator = (Symbol.iterator in Object(responseData))
 
